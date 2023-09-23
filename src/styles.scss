@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "primeng/resources/themes/soho-light/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
+@import url("./assets/theme.css");
+
+
+
+//Variables de colores
+
+:root {
+    --color-red-tcc: #E21A2F;
+    --color-yellow-tcc: #FFDD42;
+    --color-alice-blue-tcc: #E5ECF4;
+    --color-slate-blue-tcc: #7D53DE;
+    --color-blue-munsell-tcc: #55828B;
+    --color-black-tcc: #1C1D21;
+
+}
+
+body {
+    font-family: var(--font-family);
+    height: 100vh;
+    background-color: var(--color-alice-blue-tcc);
+}
+
+
+.p-menu{
+    width: 100% !important;
+    display: block;
+    padding: 0px !important;
+    background-color: var(--color-red-tcc);
+    border-radius: 0px !important;
+    border: none !important;
+
+    .p-menuitem-text{
+        color: #E5ECF4 !important;
+        font-weight: bold !important;
+        
+    }
+    .p-menuitem-icon {
+        color: #E5ECF4 !important;
+        font-size: 20px !important;
+    }
+    .p-menuitem-link:hover{
+        background-color: var(--color-yellow-tcc) !important;
+        .p-menuitem-text{
+            color: var(--color-black-tcc) !important;
+        }
+        .p-menuitem-icon {
+            color: var(--color-black-tcc) !important;
+        }
+    }
+    .p-menuitem-link-active{
+        background-color: var(--color-yellow-tcc) !important;
+        .p-menuitem-text{
+            color: var(--color-black-tcc) !important;
+        }
+        .p-menuitem-icon {
+            color: var(--color-black-tcc) !important;
+        }
+    }
+}
+
+.content{
+    padding: 16px;
+}

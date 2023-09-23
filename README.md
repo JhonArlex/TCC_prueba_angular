@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Desplegar sql server con docker
+
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<tccserver@pr43ba>" \
+   -p 1433:1433 --name tcc_sql_server --hostname tcc_sql_server \
+   -d \
+   mcr.microsoft.com/mssql/server:2022-latest
+

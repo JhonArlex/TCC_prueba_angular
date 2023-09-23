@@ -1,0 +1,53 @@
+<div class="content">
+    <h1>Clientes</h1>
+
+    <p>Gestión de clientes</p>
+
+    <p-table
+    [value]="clientes"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 20, 30]"
+>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:25%">Tipo identificacion</th>
+            <th style="width:25%">identificacion</th>
+            <th style="width:25%">Nombre</th>
+            <th style="width:25%">Genero</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cliente>
+        <tr>
+            <td>{{ cliente.tipoIdentificacion }}</td>
+            <td>{{ cliente.identificacion }}</td>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.genero }}</td>
+            <td class="flex gap-2">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="actualizarUsuario(cliente)"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="eliminarUsuario(cliente)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" (onClick)="crearUsuario()" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>
+</div>
+
+<p-dialog header="Formulario de clientes" (onHide)="limpiarEditarUsuario()" [(visible)]="visibleModal" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <app-usuario-form></app-usuario-form>
+</p-dialog>
+
+<p-confirmDialog #cd [style]="{width: '50vw'}">
+    <ng-template pTemplate="footer">
+        <button type="button" pButton  icon="pi pi-times" class="p-button-secondary" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog>
+
+<p-toast></p-toast>
